@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Giza | Contact Us</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Global Font */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Background */
+        .textured-bg {
+            background-color: #643c17; 
+            background-image: url('wallpaper.jpg');
+            min-height: 100vh;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Navigation Styles */
+        .nav-link {
+            color: white; 
+            transition: all 5s ease-in-out;
+            padding: 8px 20px; 
+            border-radius: 9999px;
+            text-decoration: none;
+        }
+
+        .nav-active {
+            background-color: #c3906c;
+            color: #643c17 !important;
+            font-weight: 600;
+            padding: 8px 20px; 
+            border-radius: 9999px; 
+        }
+
+        .nav-link-sub { transition: all 0.2s ease-in-out; }
+
+        /* --- CONTACT PAGE SPECIFIC STYLES --- */
+        
+        /* Hero Image Container */
+        .hero-image-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-bottom: 4px solid #643c17;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Contact Card Style */
+        .contact-card {
+            background-color: #643c17; /* The lighter blue-purple from your image */
+            border-radius: 2rem; /* Very rounded corners */
+            aspect-ratio: 1 / 1; /* Make them perfect squares */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background-color: #643c17;
+        }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+            color: #c3906c; 
+        }
+
+                .vm-header {
+            background-color: #643c17; /* Matches the blue header in your image */
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .vm-body {
+            border: 2px solid #643c17;
+            background-color: rgba(255, 255, 255, 0.1); /* Slight transparency */
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+
+<body class="textured-bg flex flex-col min-h-screen">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="container mx-auto px-4 pt-6 relative z-50">
+        <nav class="flex items-center justify-between p-3 bg-gray-900/60 backdrop-blur-md rounded-full border border-gray-600/50 shadow-xl">
+
+            <!-- Logo + Name -->
+            <div class="flex items-center space-x-3">
+                <!-- Placeholder Image URL for Logo (Kept as requested) -->
+                <img src="logo.jpg" class="h-10 w-10 rounded-full object-cover" alt="Explore Giza Logo">
+                <span class="text-xl font-bold tracking-wider text-white">
+                    Explore 
+                    <span class="text-sm font-light block -mt-1">Giza</span>
+                </span>
+            </div>
+
+            <!-- NAVIGATION LINKS (Desktop) -->
+            <div id="nav-links-container" class="hidden lg:flex items-center space-x-3 text-lg font-medium">
+                <!-- 'nav-active' on 'Home' initially -->
+                <a href="homepage.html" class="nav-link">Home</a>
+
+                    <div class="relative group">
+                    <!-- Projects Link (Kekal sama) -->
+                    <a href="#" class="nav-link flex items-center">
+                        Collections <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <!-- Dropdown Content -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-32 rounded-xl shadow-lg bg-[#c3906c] ring-1 ring-white/20 hidden group-hover:block z-20 overflow-hidden">
+                        <!-- Dropdown Items: 'text-center' ditambah di sini -->
+                        <a href="news.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">News</a>
+                        <a href="images.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Images</a>
+                        <a href="httrack.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">HTTrack</a>
+                        <a href="conifer.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Conifer</a>
+                    </div>
+                </div>
+                <a href="unesco.html" class="nav-link">Unesco</a>
+                <a href="directory.html" class="nav-link">Directory</a>
+                <a href="contactus.html" class="nav-link nav-active">Contact Us</a>
+            </div>
+
+            <!-- Search + Mobile Menu -->
+            <div class="flex items-center space-x-3">
+                <button id="search-toggle" class="p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="search" class="w-6 h-6 text-white"></i>
+                </button>
+                <button class="lg:hidden p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+                </button>
+            </div>
+
+        </nav>
+
+        <!-- SEARCH DROPDOWN -->
+        <div id="search-input-container" class="hidden absolute right-4 mt-2 w-72 md:w-80 bg-white p-3 rounded-xl shadow-2xl z-10">
+            <input type="text" id="search-input" placeholder="Search..."
+                class="w-full p-2 border-b-2 border-gray-300 focus:border-blue-500 text-gray-800 outline-none">
+        </div>
+    </header>
+
+    <main class="w-full flex-grow flex flex-col items-center pb-12">
+        
+        <div class="hero-image-container mt-0 mb-12 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
+                 alt="SnipSnap Office" 
+                 class="hero-image brightness-90">
+            
+            </div>
+
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                
+                <div class="contact-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="currentColor" class="contact-icon text-white">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span class="text-xl font-bold tracking-wide">+603-123 4567</span>
+                </div>
+
+                <div class="contact-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-icon text-white">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span class="text-xl font-bold tracking-wide">@exploregiza</span>
+                </div>
+
+                <div class="contact-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-icon text-white">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span class="text-xl font-bold tracking-wide">exploregiza@gmail.com</span>
+                </div>
+
+                <div class="contact-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="currentColor" class="contact-icon text-white">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <div class="flex flex-col items-center leading-snug">
+                        <span class="text-lg font-bold">Giza, El Omraniya,</span>
+                        <span class="text-lg">Egypt</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================= TEAM SECTION ================= -->
+<section class="container mx-auto px-6 py-16">
+    
+    <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+
+        <!-- Image -->
+        <div class="w-full md:w-3/5 flex justify-center">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-6">
+            <div class="w-full max-w-lg shadow-2xl bg-white/50 rounded-xl overflow-hidden">
+                <img src="camel.jpg" alt="Assorted crafting materials"
+                     class="w-full h-full object-cover">
+                     </div>
+            </div>
+        </div>
+
+        <!-- Team Profiles -->
+        <div class="w-full md:w-2/5 space-y-6">
+
+            <div class="p-4 rounded-xl bg-gray-900/60 flex gap-5 ring-1 ring-white/10 shadow-xl">
+                <img src="asmaa.jpeg" class="w-16 h-16 rounded-full object-cover">
+                <div>
+                    <p class="font-semibold text-lg">Asmaa' Sofiya Binti Muhammad Firdaus</p>
+                    <p class="text-gray-300">2025110761</p>
+                    <p class="text-blue-300 text-sm">asemetsofiya@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-gray-900/60 flex gap-5 ring-1 ring-white/10 shadow-xl">
+                <img src="afifah.jpeg" class="w-16 h-16 rounded-full object-cover">
+                <div>
+                    <p class="font-semibold text-lg">Nur Afifah Hannani binti Hilmi</p>
+                    <p class="text-gray-300">2025116765</p>
+                    <p class="text-blue-300 text-sm">afifahhilmi1@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-gray-900/60 flex gap-5 ring-1 ring-white/10 shadow-xl">
+                <img src="hasanah.jpeg" class="w-16 h-16 rounded-full object-cover">
+                <div>
+                    <p class="font-semibold text-lg">Nurul Hasanah binti Zulkhairi</p>
+                    <p class="text-gray-300">2025119945</p>
+                    <p class="text-blue-300 text-sm">hasan@gmail.com</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="mt-auto w-full bg-gray-900/60 backdrop-blur-md border-t border-gray-700/50 text-white text-sm">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+
+            <!-- Copyright and Email -->
+            <div class="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-6">
+                <span>&copy; ExploreGiza 2025</span>
+                <span class="hidden md:inline-block">|</span>
+                <a href="mailto:exploregiza@gmail.com" class="hover:text-blue-300 flex items-center">
+                    <i data-lucide="mail" class="w-4 h-4 mr-1"></i> exploregiza@gmail.com
+                </a>
+            </div>
+
+            <!-- Location and Phone Icons -->
+            <div class="flex items-center space-x-4">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400 hover:text-blue-300"></i>
+                <i data-lucide="phone" class="w-5 h-5 text-gray-400 hover:text-blue-300"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

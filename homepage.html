@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Giza: A leading online reference connecting you to the history, wonders, and discoveries of the Great Pyramids of Giza through digital content and research.">
+    <meta name="keywords" content="Giza, Pyramids of Giza, Ancient Egypt history, Explore Giza, Egyptian archaeology, Giza monuments">
+    <meta name="author" content="ExploreGiza">
+
+    <title> Explore Giza | Home</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .textured-bg {
+            background-color: #643c17; 
+            background-image: url('wallpaper.jpg');
+            min-height: 100vh;
+            color: white;
+            font-family: 'Times New Roman', sans-serif;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-link {
+            color: white; 
+            transition: all 5s ease-in-out;
+            padding: 8px 20px; 
+            border-radius: 9999px;
+            text-decoration: none;
+            background-color: transparent; 
+        }
+
+        .nav-active {
+            background-color: #c3906c;
+            color: #643c17 !important; 
+            padding: 8px 20px;
+            border-radius: 9999px; 
+            transition: all 0.2s ease-in-out; 
+        }
+
+        .vm-header {
+            background-color: #c3906c; 
+            padding: 1rem;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .vm-body {
+            background: rgba(0, 0, 0, 0.4); 
+            backdrop-filter: blur(10px);    
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: none;
+        }
+
+        .grayscale:hover {
+            filter: grayscale(0%);
+            transition: filter 0.5s ease;
+        }
+
+.flex-col.h-full:hover .vm-body {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #c3906c;
+    transition: all 0.3s ease;
+}
+
+    </style>
+</head>
+
+<body class="textured-bg flex flex-col min-h-screen">
+
+    <header class="container mx-auto px-4 pt-6 relative z-50">
+        <nav class="flex items-center justify-between p-3 bg-gray-900/60 backdrop-blur-md rounded-full border border-gray-600/50 shadow-xl">
+
+            <div class="flex items-center space-x-3">
+                <img src="logo.jpg" class="h-10 w-10 rounded-full object-cover" alt="Explore Giza Logo">
+                <span class="text-xl font-bold tracking-wider text-white">
+                    Explore 
+                    <span class="text-sm font-light block -mt-1">Giza</span>
+                </span>
+            </div>
+
+            <div id="nav-links-container" class="hidden lg:flex items-center space-x-3 text-lg font-medium">
+                <a href="homepage.html" class="nav-link nav-active">Home</a>
+
+                    <div class="relative group">
+                    <a href="#" class="nav-link flex items-center">
+                        Collections <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-32 rounded-xl shadow-lg bg-[#c3906c] ring-1 ring-white/20 hidden group-hover:block z-20 overflow-hidden">
+                        <a href="news.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">News</a>
+                        <a href="images.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Images</a>
+                        <a href="httrack.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">HTTrack</a>
+                        <a href="conifer.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Conifer</a>
+                    </div>
+                </div>
+                <a href="unesco.html" class="nav-link">Unesco</a>
+                <a href="directory.html" class="nav-link">Directory</a>
+                <a href="contactus.html" class="nav-link">Contact Us</a>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <button id="search-toggle" class="p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="search" class="w-6 h-6 text-white"></i>
+                </button>
+                <button class="lg:hidden p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+                </button>
+            </div>
+
+        </nav>
+
+        <div id="search-input-container" class="hidden absolute right-4 mt-2 w-72 md:w-80 bg-white p-3 rounded-xl shadow-2xl z-10">
+            <input type="text" id="search-input" placeholder="Search..."
+                class="w-full p-2 border-b-2 border-gray-300 focus:border-blue-500 text-gray-800 outline-none">
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-20 flex flex-col items-center justify-center flex-grow">
+        <div class="w-full max-w-5xl p-8 md:p-14 lg:p-20 text-center border-4 border-white rounded-xl shadow-2xl bg-black/30 backdrop-blur-md">
+
+            <h1 class="hero-title uppercase mb-4">WELCOME TO</h1>
+
+            <p class="hero-subtitle uppercase border-y border-white py-3 mb-10 tracking-widest">
+                EXPLORE GIZA!
+            </p>
+
+            <!-- Slogan: Create. Craft. Inspire. (Corrected to text-white) -->
+            <p class="text-xl md:text-2xl font-light italic text-white mt-10">
+                Knowledge Beyond Time
+            </p>
+
+        </div>
+    </main>
+
+       <section class="container mx-auto px-6 py-16 pb-24">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+            <div class="flex flex-col h-full">
+                <div class="vm-header shadow-lg">
+                    <h2 class="text-5xl font-serif text-white uppercase tracking-widest drop-shadow-md">Vision</h2>
+                </div>
+                <div class="vm-body flex-grow p-8 flex items-center justify-center text-center shadow-xl">
+                    <p class="text-xl md:text-2xl leading-relaxed italic text-gray-100 font-serif">
+                        “To be a leading online reference that connects people to the wonders, history, and discoveries of the Pyramid of Giza through rich digital content.”
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center p-4">
+                <div class="bg-white p-2 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <img src="homepyramid.jpg" 
+                         alt="DIY Tiles" 
+                         class="w-full h-auto object-cover max-h-[400px] border border-gray-300">
+                </div>
+            </div>
+
+            <div class="flex flex-col h-full">
+                <div class="vm-header shadow-lg">
+                    <h2 class="text-5xl font-serif text-white uppercase tracking-widest drop-shadow-md">Mission</h2>
+                </div>
+                <div class="vm-body flex-grow p-8 flex items-center justify-center text-center shadow-xl">
+                    <p class="text-xl md:text-2xl leading-relaxed italic text-gray-100 font-serif">
+                        “To deliver well-organized, up-to-date, and engaging information about the Pyramid of Giza using images, news, and documents to support learning, research, and public interest.”
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto w-full bg-gray-900/60 backdrop-blur-md border-t border-gray-700/50 text-white text-sm">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+
+            <!-- Copyright and Email -->
+            <div class="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-6">
+                <span>&copy; ExploreGiza 2025</span>
+                <span class="hidden md:inline-block">|</span>
+                <a href="mailto:exploregiza@gmail.com" class="hover:text-blue-300 flex items-center">
+                    <i data-lucide="mail" class="w-4 h-4 mr-1"></i> exploregiza@gmail.com
+                </a>
+            </div>
+
+            <!-- Location and Phone Icons -->
+            <div class="flex items-center space-x-4">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400 hover:text-blue-300"></i>
+                <i data-lucide="phone" class="w-5 h-5 text-gray-400 hover:text-blue-300"></i>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // --- 1. Navigation Fix: Active State Management ---
+        const navContainer = document.getElementById('nav-links-container');
+        // Selects all top-level nav links and dropdown links
+        const navLinks = navContainer.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Check if the link is a dropdown sub-link or the current page
+                const isSubLink = link.classList.contains('nav-link-sub');
+                const isCurrentPage = this.classList.contains('nav-active');
+
+                if (isSubLink) {
+                    // Only prevent default for sub-links to show notification
+                    e.preventDefault(); 
+                    const linkText = this.textContent.trim();
+                    showNotification(`Navigating to Projects / ${linkText}...`);
+                } else if (!isCurrentPage) {
+                    // Allow navigation for all other main links (Home, Projects, Quiz, Contact Us)
+                    // The default browser behavior will load the new page (e.g., home.html)
+                    return;
+                } else {
+                    // Current active page link is clicked (About Us in this case)
+                    e.preventDefault(); 
+                    showNotification(`You are already on the About Us page.`);
+                }
+            });
+        });
+
+        // --- 2. Search Functionality (Kept from index.html) ---
+        const searchToggle = document.getElementById('search-toggle');
+        const searchInputContainer = document.getElementById('search-input-container');
+        const searchInput = document.getElementById('search-input');
+
+        searchToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchInputContainer.classList.toggle('hidden');
+            if (!searchInputContainer.classList.contains('hidden')) {
+                setTimeout(() => searchInput.focus(), 100);
+            }
+        });
+
+        document.body.addEventListener('click', (e) => {
+            if (!searchInputContainer.contains(e.target) && !searchToggle.contains(e.target)) {
+                searchInputContainer.classList.add('hidden');
+            }
+        });
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+                const query = searchInput.value.trim();
+                showNotification(`Searching for: "${query}"...`);
+                searchInput.value = '';
+                searchInputContainer.classList.add('hidden');
+            }
+        });
+        
+        // --- 3. Custom Notification Box (Replaces alert()) ---
+        function showNotification(message) {
+            const messageBox = document.createElement('div');
+            messageBox.className = 'fixed top-4 right-4 bg-blue-600 text-white p-3 rounded-lg shadow-xl z-[9999] transition-all duration-300 transform translate-x-0';
+            messageBox.textContent = message;
+            document.body.appendChild(messageBox);
+            
+            // Hide the message after a few seconds
+            setTimeout(() => {
+                messageBox.classList.remove('translate-x-0');
+                messageBox.classList.add('translate-x-full', 'opacity-0');
+                
+                // Remove from DOM after transition
+                setTimeout(() => messageBox.remove(), 300);
+            }, 2500);
+        }
+    </script>
+
+</body>
+</html>

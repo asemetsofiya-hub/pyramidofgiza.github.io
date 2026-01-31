@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Giza | News</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .textured-bg {
+            background-color: #643c17; 
+            background-image: url('wallpaper.jpg'); /* Matches your home page */
+            min-height: 100vh;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .nav-link {
+            color: white; 
+            transition: all 0.3s ease-in-out;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            text-decoration: none;
+        }
+
+        .nav-active {
+            background-color: #c3906c;
+            color: #643c17 !important;
+            font-weight: 600;
+        }
+
+        /* News Card Styling */
+        .news-card {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: #c3906c;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .news-image-container {
+            aspect-ratio: 1 / 1; /* Makes it a square like your wireframe */
+            overflow: hidden;
+            border-bottom: 2px solid #c3906c;
+        }
+
+        .news-title {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #f3f4f6;
+        }
+    </style>
+</head>
+
+<body class="textured-bg flex flex-col min-h-screen">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="container mx-auto px-4 pt-6 relative z-50">
+        <nav class="flex items-center justify-between p-3 bg-gray-900/60 backdrop-blur-md rounded-full border border-gray-600/50 shadow-xl">
+
+            <!-- Logo + Name -->
+            <div class="flex items-center space-x-3">
+                <!-- Placeholder Image URL for Logo (Kept as requested) -->
+                <img src="logo.jpg" class="h-10 w-10 rounded-full object-cover" alt="Explore Giza Logo">
+                <span class="text-xl font-bold tracking-wider text-white">
+                    Explore 
+                    <span class="text-sm font-light block -mt-1">Giza</span>
+                </span>
+            </div>
+
+            <!-- NAVIGATION LINKS (Desktop) -->
+            <div id="nav-links-container" class="hidden lg:flex items-center space-x-3 text-lg font-medium">
+                <!-- 'nav-active' on 'Home' initially -->
+                <a href="homepage.html" class="nav-link ">Home</a>
+
+                    <div class="relative group">
+                    <!-- Projects Link (Kekal sama) -->
+                    <a href="#" class="nav-link flex items-center nav-active">
+                        Collections <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <!-- Dropdown Content -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-32 rounded-xl shadow-lg bg-[#c3906c] ring-1 ring-white/20 hidden group-hover:block z-20 overflow-hidden">
+                        <!-- Dropdown Items: 'text-center' ditambah di sini -->
+                        <a href="news.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center nav-active">News</a>
+                        <a href="images.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Images</a>
+                        <a href="httrack.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">HTTrack</a>
+                        <a href="conifer.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Conifer</a>
+                    </div>
+                </div>
+                <a href="unesco.html" class="nav-link">Unesco</a>
+                <a href="directory.html" class="nav-link">Directory</a>
+                <a href="contactus.html" class="nav-link">Contact Us</a>
+            </div>
+
+            <!-- Search + Mobile Menu -->
+            <div class="flex items-center space-x-3">
+                <button id="search-toggle" class="p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="search" class="w-6 h-6 text-white"></i>
+                </button>
+                <button class="lg:hidden p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+                </button>
+            </div>
+
+        </nav>
+
+        <!-- SEARCH DROPDOWN -->
+        <div id="search-input-container" class="hidden absolute right-4 mt-2 w-72 md:w-80 bg-white p-3 rounded-xl shadow-2xl z-10">
+            <input type="text" id="search-input" placeholder="Search..."
+                class="w-full p-2 border-b-2 border-gray-300 focus:border-blue-500 text-gray-800 outline-none">
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 flex-grow">
+        <h2 class="text-4xl font-serif text-center mb-10 uppercase tracking-widest text-[#000000]">Latest Giza Discoveries</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            
+            <a href="https://www.popularmechanics.com/science/archaeology/a69383250/secret-entrance-pyramids-of-giza/" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news1.avif" alt="News 1" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">Secret Entrance Found?</div>
+            </a>
+
+            <a href="https://www.euronews.com/culture/2025/03/26/going-underground-experts-clash-over-hidden-city-beneath-egypt-pyramids" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news2.webp" alt="News 2" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">The Underground City Controversy</div>
+            </a>
+
+            <a href="https://www.jpost.com/archaeology/article-873314" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news3.jpg" alt="News 3" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">Archaeological Breakthrough</div>
+            </a>
+
+            <a href="https://news.artnet.com/art-world/air-filled-voids-menkaure-pyramid-giza-lost-entrance-2710970" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news4.jpg" alt="News 4" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">Voids in Menkaure Pyramid</div>
+            </a>
+
+            <a href="https://www.bbc.com/news/articles/c99zwkzzrxvo" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news5.jpg" alt="News 5" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">BBC: Pyramid Updates</div>
+            </a>
+
+            <a href="https://www.nationalgeographic.com/history/article/giza-pyramids" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news6.jpg" alt="News 6" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">Nat Geo: History of Giza</div>
+            </a>
+
+            <a href="https://www.sciencealert.com/voids-detected-inside-giza-pyramid-may-be-signs-of-a-hidden-entrance" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news7.jpg" alt="News 7" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">Hidden Entrance Signs</div>
+            </a>
+
+            <a href="https://www.sciencefocus.com/news/strange-structure-giza-pyramids" target="_blank" class="news-card rounded-lg">
+                <div class="news-image-container">
+                    <img src="news8.jpg" alt="News 8" class="w-full h-full object-cover">
+                </div>
+                <div class="news-title">Strange Structures Explained</div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="mt-auto w-full bg-gray-900/60 backdrop-blur-md border-t border-gray-700/50 text-white text-sm">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <span>&copy; ExploreGiza 2025 | footer</span>
+            <div class="flex space-x-4">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

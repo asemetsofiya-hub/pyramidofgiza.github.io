@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Explore Giza | UNESCO </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .textured-bg {
+            background-color: #643c17;
+            background-image: url('wallpaper.jpg');
+            min-height: 100vh;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .nav-link {
+            color: white;
+            transition: all 0.3s ease-in-out;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            text-decoration: none;
+        }
+
+        .nav-active {
+            background-color: #c3906c;
+            color: #643c17 !important;
+            font-weight: 600;
+        }
+
+        /* Section Borders from wireframe */
+        .content-box {
+            border: 2px solid white;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .chart-container {
+            border: 2px solid white;
+            background: rgba(255, 255, 255, 0.05);
+            display: inline-block; /* Makes the box follow the image size */
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+    /* Remove min-height: 400px; if it is still there */
+        }
+    </style>
+</head>
+
+<body class="textured-bg flex flex-col min-h-screen">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="container mx-auto px-4 pt-6 relative z-50">
+        <nav class="flex items-center justify-between p-3 bg-gray-900/60 backdrop-blur-md rounded-full border border-gray-600/50 shadow-xl">
+
+            <!-- Logo + Name -->
+            <div class="flex items-center space-x-3">
+                <!-- Placeholder Image URL for Logo (Kept as requested) -->
+                <img src="logo.jpg" class="h-10 w-10 rounded-full object-cover" alt="Explore Giza Logo">
+                <span class="text-xl font-bold tracking-wider text-white">
+                    Explore 
+                    <span class="text-sm font-light block -mt-1">Giza</span>
+                </span>
+            </div>
+
+            <!-- NAVIGATION LINKS (Desktop) -->
+            <div id="nav-links-container" class="hidden lg:flex items-center space-x-3 text-lg font-medium">
+                <!-- 'nav-active' on 'Home' initially -->
+                <a href="homepage.html" class="nav-link">Home</a>
+
+                    <div class="relative group">
+                    <!-- Projects Link (Kekal sama) -->
+                    <a href="#" class="nav-link flex items-center">
+                        Collections <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <!-- Dropdown Content -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-32 rounded-xl shadow-lg bg-[#c3906c] ring-1 ring-white/20 hidden group-hover:block z-20 overflow-hidden">
+                        <!-- Dropdown Items: 'text-center' ditambah di sini -->
+                        <a href="news.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">News</a>
+                        <a href="images.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Images</a>
+                        <a href="httrack.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">HTTrack</a>
+                        <a href="conifer.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Conifer</a>
+                    </div>
+                </div>
+                <a href="unesco.html" class="nav-link nav-active">Unesco</a>
+                <a href="directory.html" class="nav-link">Directory</a>
+                <a href="contactus.html" class="nav-link">Contact Us</a>
+            </div>
+
+            <!-- Search + Mobile Menu -->
+            <div class="flex items-center space-x-3">
+                <button id="search-toggle" class="p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="search" class="w-6 h-6 text-white"></i>
+                </button>
+                <button class="lg:hidden p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+                </button>
+            </div>
+
+        </nav>
+
+        <!-- SEARCH DROPDOWN -->
+        <div id="search-input-container" class="hidden absolute right-4 mt-2 w-72 md:w-80 bg-white p-3 rounded-xl shadow-2xl z-10">
+            <input type="text" id="search-input" placeholder="Search..."
+                class="w-full p-2 border-b-2 border-gray-300 focus:border-blue-500 text-gray-800 outline-none">
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="content-box rounded-lg overflow-hidden">
+            <div class="bg-white/10 p-4 border-b-2 border-white">
+                <h2 class="text-3xl font-serif text-center uppercase tracking-widest">UNESCO Background</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="p-8 border-r-0 md:border-r-2 border-white flex flex-col justify-center">
+                    <p class="text-lg leading-relaxed font-serif italic mb-4">
+                        UNESCO (United Nations Educational, Scientific and Cultural Organization) seeks to build peace through international cooperation in Education, the Sciences, and Culture. 
+                    </p>
+                    <p class="text-lg leading-relaxed font-serif">
+                        UNESCO was created to decide what kind of society we wanted to build together after the destruction of two World Wars. 
+                        As early as 1942, global leaders began imagining an organization that would use education, culture, science and information to build lasting peace.
+                        Over the years, UNESCO has implemented initiatives that have radically improved lives around the world, and shaped global action in its field of competence, through nation-wide educational and scientific programmes, the creation of tsunami warning systems, and the idea of World Heritage.
+                        Today, we are continuing this work. 
+                    </p>
+                </div>
+                <div class="p-4 flex items-center justify-center bg-black/20">
+                    <img src="unescologo.png" alt="UNESCO Building" class="rounded-lg shadow-2xl border-2 border-[#c3906c] max-h-[400px]">
+                </div>
+            </div>
+        </div>
+
+<div class="mt-16 text-center"> 
+    <h3 class="text-2xl font-serif mb-6 uppercase tracking-widest text-[#000000]">
+        Organizational Chart
+    </h3>
+    
+    <div class="chart-container rounded-xl p-6 inline-block">
+        <img src="unesco_oc.png" 
+             alt="UNESCO Organizational Chart" 
+             class="max-w-2xl w-full h-auto rounded shadow-lg">
+    </div>
+</div>
+    </main>
+
+    <footer class="mt-auto w-full bg-gray-900/60 backdrop-blur-md border-t border-gray-700/50 text-white text-sm">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <span>&copy; ExploreGiza 2025 | footer</span>
+            <div class="flex space-x-4">
+                <i data-lucide="mail" class="w-5 h-5 text-gray-400"></i>
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

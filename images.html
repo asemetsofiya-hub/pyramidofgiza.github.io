@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Explore Giza | Gallery </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .textured-bg {
+            background-color: #643c17;
+            background-image: url('wallpaper.jpg');
+            min-height: 100vh;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Navigation Styles */
+        .nav-link {
+            color: white;
+            transition: all 0.3s ease-in-out;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            text-decoration: none;
+        }
+
+        .nav-active {
+            background-color: #c3906c;
+            color: #643c17 !important;
+            font-weight: 600;
+        }
+
+        /* Image Card Styles based on your wireframe */
+        .image-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 2px solid white; /* Matches the white box look in the image */
+            padding: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02);
+            border-color: #c3906c;
+        }
+
+        .square-frame {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .description-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid white;
+            padding: 10px;
+            min-height: 80px;
+        }
+    </style>
+</head>
+
+<body class="textured-bg flex flex-col min-h-screen">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="container mx-auto px-4 pt-6 relative z-50">
+        <nav class="flex items-center justify-between p-3 bg-gray-900/60 backdrop-blur-md rounded-full border border-gray-600/50 shadow-xl">
+
+            <!-- Logo + Name -->
+            <div class="flex items-center space-x-3">
+                <!-- Placeholder Image URL for Logo (Kept as requested) -->
+                <img src="logo.jpg" class="h-10 w-10 rounded-full object-cover" alt="Explore Giza Logo">
+                <span class="text-xl font-bold tracking-wider text-white">
+                    Explore 
+                    <span class="text-sm font-light block -mt-1">Giza</span>
+                </span>
+            </div>
+
+            <!-- NAVIGATION LINKS (Desktop) -->
+            <div id="nav-links-container" class="hidden lg:flex items-center space-x-3 text-lg font-medium">
+                <!-- 'nav-active' on 'Home' initially -->
+                <a href="homepage.html" class="nav-link">Home</a>
+
+                    <div class="relative group">
+                    <!-- Projects Link (Kekal sama) -->
+                    <a href="#" class="nav-link flex items-center nav-active">
+                        Collections <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <!-- Dropdown Content -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-32 rounded-xl shadow-lg bg-[#c3906c] ring-1 ring-white/20 hidden group-hover:block z-20 overflow-hidden">
+                        <!-- Dropdown Items: 'text-center' ditambah di sini -->
+                        <a href="news.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">News</a>
+                        <a href="images.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center nav-active">Images</a>
+                        <a href="httrack.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">HTTrack</a>
+                        <a href="conifer.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Conifer</a>
+                    </div>
+                </div>
+                <a href="unesco.html" class="nav-link">Unesco</a>
+                <a href="directory.html" class="nav-link">Directory</a>
+                <a href="contactus.html" class="nav-link">Contact Us</a>
+            </div>
+
+            <!-- Search + Mobile Menu -->
+            <div class="flex items-center space-x-3">
+                <button id="search-toggle" class="p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="search" class="w-6 h-6 text-white"></i>
+                </button>
+                <button class="lg:hidden p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+                </button>
+            </div>
+
+        </nav>
+
+        <!-- SEARCH DROPDOWN -->
+        <div id="search-input-container" class="hidden absolute right-4 mt-2 w-72 md:w-80 bg-white p-3 rounded-xl shadow-2xl z-10">
+            <input type="text" id="search-input" placeholder="Search..."
+                class="w-full p-2 border-b-2 border-gray-300 focus:border-blue-500 text-gray-800 outline-none">
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 flex-grow">
+        <h2 class="text-4xl font-serif text-center mb-12 uppercase tracking-widest text-[#000000]">Giza Gallery</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <div class="image-card">
+                <div class="square-frame">
+                    <img src="image1.jpg" alt="Giza 1" class="w-full h-full object-cover">
+                </div>
+                <div class="description-box">
+                    <p class="text-sm italic font-serif">"View from the Giza Plateau of the three pyramids known as Queens' Pyramids with three smaller three satellite pyramids in front. In order from left to right: the Pyramid of Menkaure, Khafre and then Khufu."</p>
+                    <hr class="my-2 border-white/20">
+                    <div class="flex justify-between text-[10px] uppercase tracking-tighter opacity-70">
+                        <span>By: WitR via Shutterstock</span>
+                        <span>Date: 12 Jan 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="square-frame">
+                    <img src="image2.jpg" alt="Giza 2" class="w-full h-full object-cover">
+                </div>
+                <div class="description-box">
+                    <p class="text-sm italic font-serif">"Visitors approaching the Pyramids of Giza."</p>
+                    <hr class="my-2 border-white/20">
+                    <div class="flex justify-between text-[10px] uppercase tracking-tighter opacity-70">
+                        <span>By: Maria Ligaya</span>
+                        <span>Date: 31 August 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="square-frame">
+                    <img src="image3.jpg" alt="Giza 3" class="w-full h-full object-cover">
+                </div>
+                <div class="description-box">
+                    <p class="text-sm italic font-serif">"A Bedouin man on a camel by the Pyramids of Khafre and Menkaure at the Giza Necropolis in Egypt."</p>
+                    <hr class="my-2 border-white/20">
+                    <div class="flex justify-between text-[10px] uppercase tracking-tighter opacity-70">
+                        <span>By: Adrian Pope</span>
+                        <span>Date: 1st July 2022</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="mt-auto w-full bg-gray-900/60 backdrop-blur-md border-t border-gray-700/50 text-white text-sm">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <span>&copy; ExploreGiza 2025 | footer</span>
+            <div class="flex items-center space-x-4">
+                <i data-lucide="mail" class="w-5 h-5 text-gray-400"></i>
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        // Add navigation and search JS logic here if needed
+    </script>
+
+</body>
+</html>

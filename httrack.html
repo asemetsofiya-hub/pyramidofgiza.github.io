@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Explore Giza | HTTrack Data </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Background / Crumpled Paper Texture */
+        .textured-bg {
+            background-color: #643c17;
+            background-image: url('wallpaper.jpg');
+            min-height: 100vh;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Base style for all navigation links */
+        .nav-link {
+            color: white;
+            transition: all 0.3s ease-in-out;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            text-decoration: none;
+        }
+
+        /* Styling for the active pill */
+        .nav-active {
+            background-color: #c3906c;
+            color: #643c17 !important;
+            font-weight: 600;
+        }
+
+        /* Container for HTTrack Screenshots */
+        .httrack-display-box {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 4px solid white; /* Matches the thick white border in your wireframe */
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .screenshot-frame {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-frame:hover {
+            transform: scale(1.01);
+            border-color: #c3906c;
+        }
+    </style>
+</head>
+
+<body class="textured-bg flex flex-col min-h-screen">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="container mx-auto px-4 pt-6 relative z-50">
+        <nav class="flex items-center justify-between p-3 bg-gray-900/60 backdrop-blur-md rounded-full border border-gray-600/50 shadow-xl">
+
+            <!-- Logo + Name -->
+            <div class="flex items-center space-x-3">
+                <!-- Placeholder Image URL for Logo (Kept as requested) -->
+                <img src="logo.jpg" class="h-10 w-10 rounded-full object-cover" alt="Explore Giza Logo">
+                <span class="text-xl font-bold tracking-wider text-white">
+                    Explore 
+                    <span class="text-sm font-light block -mt-1">Giza</span>
+                </span>
+            </div>
+
+            <!-- NAVIGATION LINKS (Desktop) -->
+            <div id="nav-links-container" class="hidden lg:flex items-center space-x-3 text-lg font-medium">
+                <!-- 'nav-active' on 'Home' initially -->
+                <a href="homepage.html" class="nav-link">Home</a>
+
+                    <div class="relative group">
+                    <!-- Projects Link (Kekal sama) -->
+                    <a href="#" class="nav-link flex items-center nav-active">
+                        Collections <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <!-- Dropdown Content -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-32 rounded-xl shadow-lg bg-[#c3906c] ring-1 ring-white/20 hidden group-hover:block z-20 overflow-hidden">
+                        <!-- Dropdown Items: 'text-center' ditambah di sini -->
+                        <a href="news.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">News</a>
+                        <a href="images.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Images</a>
+                        <a href="httrack.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center nav-active">HTTrack</a>
+                        <a href="conifer.html" class="block px-4 py-2 text-white hover:bg-[#28406b] transition-colors nav-link-sub text-center">Conifer</a>
+                    </div>
+                </div>
+                <a href="unesco.html" class="nav-link">Unesco</a>
+                <a href="directory.html" class="nav-link">Directory</a>
+                <a href="contactus.html" class="nav-link">Contact Us</a>
+            </div>
+
+            <!-- Search + Mobile Menu -->
+            <div class="flex items-center space-x-3">
+                <button id="search-toggle" class="p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="search" class="w-6 h-6 text-white"></i>
+                </button>
+                <button class="lg:hidden p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6 text-white"></i>
+                </button>
+            </div>
+
+        </nav>
+
+        <!-- SEARCH DROPDOWN -->
+        <div id="search-input-container" class="hidden absolute right-4 mt-2 w-72 md:w-80 bg-white p-3 rounded-xl shadow-2xl z-10">
+            <input type="text" id="search-input" placeholder="Search..."
+                class="w-full p-2 border-b-2 border-gray-300 focus:border-blue-500 text-gray-800 outline-none">
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 flex flex-col items-center justify-start flex-grow">
+        
+        <h2 class="text-4xl font-serif text-center mb-8 uppercase tracking-widest text-[#000000]">HTTrack Data Records</h2>
+
+        <div class="httrack-display-box">
+            
+            <div class="screenshot-frame">
+                <p class="mb-4 text-center font-serif italic text-white/70">Record 01: HTTrack 1</p>
+                <img src="httrack1.png" alt="HTTrack Screenshot 1" class="w-full h-auto rounded shadow-inner border border-white/10">
+            </div>
+
+            <div class="screenshot-frame">
+                <p class="mb-4 text-center font-serif italic text-white/70">Record 02: HTTrack 2</p>
+                <img src="httrack2.png" alt="HTTrack Screenshot 2" class="w-full h-auto rounded shadow-inner border border-white/10">
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="mt-auto w-full bg-gray-900/60 backdrop-blur-md border-t border-gray-700/50 text-white text-sm">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-6">
+                <span>&copy; ExploreGiza 2025 | footer</span>
+                <span class="hidden md:inline-block">|</span>
+                <a href="mailto:exploregiza@gmail.com" class="hover:text-blue-300 flex items-center">
+                    <i data-lucide="mail" class="w-4 h-4 mr-1"></i> exploregiza@gmail.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+                <i data-lucide="phone" class="w-5 h-5 text-gray-400"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // --- Search Functionality ---
+        const searchToggle = document.getElementById('search-toggle');
+        const searchInputContainer = document.getElementById('search-input-container');
+        const searchInput = document.getElementById('search-input');
+
+        searchToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchInputContainer.classList.toggle('hidden');
+            if (!searchInputContainer.classList.contains('hidden')) {
+                setTimeout(() => searchInput.focus(), 100);
+            }
+        });
+    </script>
+
+</body>
+</html>
